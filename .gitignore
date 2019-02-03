@@ -1,14 +1,14 @@
 *.gem
 *.rbc
-/.config
-/coverage/
-/InstalledFiles
-/pkg/
-/spec/reports/
-/spec/examples.txt
-/test/tmp/
-/test/version_tmp/
-/tmp/
+/backend/.config
+/backend/coverage/
+/backend/InstalledFiles
+/backend/pkg/
+/backend/spec/reports/
+/backend/spec/examples.txt
+/backend/test/tmp/
+/backend/test/version_tmp/
+/backend/tmp/
 
 # Used by dotenv library to load environment variables.
 # .env
@@ -30,15 +30,15 @@ build-iPhoneSimulator/
 # vendor/Pods/
 
 ## Documentation cache and generated files:
-/.yardoc/
-/_yardoc/
-/doc/
-/rdoc/
+/backend/.yardoc/
+/backend/_yardoc/
+/backend/doc/
+/backend/rdoc/
 
 ## Environment normalization:
-/.bundle/
-/vendor/bundle
-/lib/bundler/man/
+/backend/.bundle/
+/backend/vendor/bundle
+/backend/lib/bundler/man/
 
 # for a library or gem, you might want to ignore these files since the code is
 # intended to run in multiple environments; otherwise, check them in:
