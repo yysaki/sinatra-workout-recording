@@ -134,3 +134,4 @@ frontend/.idea
 # Service worker
 frontend/sw.*
 
+.swp
