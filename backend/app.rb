@@ -4,5 +4,8 @@ require 'sinatra'
 require 'sinatra/reloader'
 
 get '/' do
-  'hello sinatra-workout-recording'
+  headers \
+    'Access-Control-Allow-Origin' => '*'
+
+  body 'hello sinatra-workout-recording'
 end
