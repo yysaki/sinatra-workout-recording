@@ -23,13 +23,6 @@ helpers do
 end
 
 ActiveRecord::Base.establish_connection(ENV['DB_URL'])
-# ActiveRecord::Base.establish_connection(
-#   adapter: 'mysql2',
-#   host: 'workout-recording-db.ccaiowlzfjrk.ap-northeast-1.rds.amazonaws.com',
-#   username: 'sasaki',
-#   password: 'onTiBRyPOlEcOunOsERfusHaBIoulT',
-#   database: 'workout_recording'
-# )
 
 # test
 class Comment < ActiveRecord::Base
