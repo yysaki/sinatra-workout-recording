@@ -4,6 +4,7 @@ require 'sinatra'
 require 'sinatra/reloader'
 require 'active_record'
 require 'rack/csrf'
+require './models/comment'
 
 use Rack::Session::Cookie, secret: 'thisissomethingsecret'
 use Rack::Csrf, raise: true
@@ -23,10 +24,6 @@ helpers do
 end
 
 ActiveRecord::Base.establish_connection(ENV['DB_URL'])
-
-class Comment < ActiveRecord::Base
-  validates :body, presence: true
-end
 
 get '/' do
   @title = 'My BBS'
