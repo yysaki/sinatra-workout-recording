@@ -24,7 +24,6 @@ end
 
 ActiveRecord::Base.establish_connection(ENV['DB_URL'])
 
-# test
 class Comment < ActiveRecord::Base
   validates :body, presence: true
 end
