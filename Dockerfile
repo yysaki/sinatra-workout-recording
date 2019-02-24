@@ -9,4 +9,4 @@ RUN gem install bundler && \
   # sqlite3 bbs.db < seeds.sql
 COPY . /app
 EXPOSE 80
-CMD ["/usr/local/bin/ruby", "app.rb", "-p", "80", "-o", "0.0.0.0"]
+CMD ["/usr/local/bundle/bin/rackup", "-p", "80", "-o", "0.0.0.0"]
