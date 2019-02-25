@@ -8,7 +8,9 @@ require './models/comment'
 require './models/user'
 
 class App < Sinatra::Base
-  use Rack::Session::Cookie, secret: 'thisissomethingsecret'
+  use Rack::Session::Cookie, secret: Digest::SHA256.hexdigest(rand.to_s),
+                             expires_after: 3600
+
   use Rack::Csrf, raise: true
 
   helpers do
@@ -26,6 +28,22 @@ class App < Sinatra::Base
   end
 
   ActiveRecord::Base.establish_connection(ENV['DB_URL'])
+
+  get '/' do
+    redirect to("/users/#{session[:id]}") if session[:id]
+
+    @title = 'Log in'
+    erb :index
+  end
+
+  post '/login' do
+    user = User.find_by(name: params[:name])
+    redirect to('/') if user.nil?
+    redirect to('/') if user.password != params[:password]
+
+    session[:id] = user.id
+    redirect to("/users/#{session[:id]}")
+  end
 
   get '/comments' do
     @title = 'My BBS'

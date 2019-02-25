@@ -1,0 +1,9 @@
+<h1>Log in</h1>
+<form action="/login" method="post">
+  <%= csrf_tag %>
+  <input type="text" name="name">
+  <input type="text" name="password">
+  <input type="submit" value="Log in">
+</form>
+
+<a href="/signup">Sign up</a>
