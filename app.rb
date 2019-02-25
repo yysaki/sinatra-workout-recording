@@ -5,6 +5,7 @@ require 'sinatra/reloader'
 require 'active_record'
 require 'rack/csrf'
 require './models/comment'
+require './models/user'
 
 class App < Sinatra::Base
   use Rack::Session::Cookie, secret: 'thisissomethingsecret'
@@ -39,5 +40,15 @@ class App < Sinatra::Base
 
   post '/destroy' do
     Comment.find(params[:id]).destroy
+  end
+
+  get '/signup' do
+    @title = 'Sign up'
+    erb :signup
+  end
+
+  post '/signup' do
+    User.create(name: params[:name], password: params[:password])
+    redirect to('/')
   end
 end
