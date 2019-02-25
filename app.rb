@@ -27,15 +27,15 @@ class App < Sinatra::Base
 
   ActiveRecord::Base.establish_connection(ENV['DB_URL'])
 
-  get '/' do
+  get '/comments' do
     @title = 'My BBS'
     @comments = Comment.all
-    erb :index
+    erb :comments
   end
 
   post '/create' do
     Comment.create(body: params[:body])
-    redirect to('/')
+    redirect to('/comments')
   end
 
   post '/destroy' do
