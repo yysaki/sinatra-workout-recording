@@ -5,6 +5,9 @@ require 'sinatra/reloader'
 require 'active_record'
 require 'rack/csrf'
 require './models/comment'
+require './models/activity'
+require './models/category'
+require './models/menu'
 require './models/user'
 
 class App < Sinatra::Base
