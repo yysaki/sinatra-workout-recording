@@ -1,0 +1,8 @@
+<h1><%= @user.name %> 's activities</h1>
+<ul>
+  <% @user.activities.each do |activity| %>
+    <li data-id="<%= activity.id %>">
+      <%= activity.name %>
+    </li>
+  <% end %>
+</ul>

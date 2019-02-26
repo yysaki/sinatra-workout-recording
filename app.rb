@@ -33,7 +33,7 @@ class App < Sinatra::Base
   ActiveRecord::Base.establish_connection(ENV['DB_URL'])
 
   get '/' do
-    redirect to("/users/#{session[:id]}") if session[:id]
+    redirect to('/activities') if session[:id]
 
     @title = 'Log in'
     erb :index
@@ -45,7 +45,16 @@ class App < Sinatra::Base
     redirect to('/') if user.password != params[:password]
 
     session[:id] = user.id
-    redirect to("/users/#{session[:id]}")
+    redirect to('/activities')
+  end
+
+  get '/activities' do
+    @id = session[:id]
+    redirect to('/') unless @id
+    @user = User.includes(:activities).find_by(id: @id)
+
+    @title = 'Activities'
+    erb :activities
   end
 
   get '/comments' do
