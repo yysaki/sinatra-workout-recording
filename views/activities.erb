@@ -9,6 +9,14 @@
 </ul>
 <form action="/activities/create" method="post">
   <%= csrf_tag %>
-  <input type="text" name="name">
+  <select id="name" name="name">
+    <% @categories.each do |category| %>
+      <optgroup label="<%= category.name %>">
+        <% category.menus.each do |menu| %>
+          <option value="<%= menu.name %>"><%= menu.name %></option>
+        <% end %>
+      </optgroup>
+    <% end %>
+  </select>
   <input type="submit" value="Record activity">
 </form>
