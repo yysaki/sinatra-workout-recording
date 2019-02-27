@@ -59,6 +59,8 @@ class App < Sinatra::Base
   post '/activities/create' do
     @user_id = session[:id]
     @menu = Menu.find_by(name: params[:name])
+    redirect to('/activities') unless @menu
+
     Activity.create(user_id: @user_id,
                     menu_id: @menu.id,
                     name: @menu.name)
