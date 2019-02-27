@@ -4,7 +4,6 @@ require 'sinatra/base'
 require 'sinatra/reloader'
 require 'active_record'
 require 'rack/csrf'
-require './models/comment'
 require './models/activity'
 require './models/category'
 require './models/menu'
@@ -69,21 +68,6 @@ class App < Sinatra::Base
   get '/activities/:id/destroy' do
     Activity.find(params[:id]).destroy
     redirect to('/activities')
-  end
-
-  get '/comments' do
-    @title = 'My BBS'
-    @comments = Comment.all
-    erb :comments
-  end
-
-  post '/create' do
-    Comment.create(body: params[:body])
-    redirect to('/comments')
-  end
-
-  post '/destroy' do
-    Comment.find(params[:id]).destroy
   end
 
   get '/signup' do
