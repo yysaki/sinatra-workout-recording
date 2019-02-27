@@ -6,3 +6,8 @@
     </li>
   <% end %>
 </ul>
+<form action="/activities/create" method="post">
+  <%= csrf_tag %>
+  <input type="text" name="name">
+  <input type="submit" value="Record activity">
+</form>

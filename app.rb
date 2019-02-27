@@ -57,6 +57,15 @@ class App < Sinatra::Base
     erb :activities
   end
 
+  post '/activities/create' do
+    @user_id = session[:id]
+    @menu = Menu.find_by(name: params[:name])
+    Activity.create(user_id: @user_id,
+                    menu_id: @menu.id,
+                    name: @menu.name)
+    redirect to('/activities')
+  end
+
   get '/comments' do
     @title = 'My BBS'
     @comments = Comment.all
