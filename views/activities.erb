@@ -3,6 +3,7 @@
   <% @user.activities.each do |activity| %>
     <li data-id="<%= activity.id %>">
       <%= activity.name %>
+      <a href="/activities/<%= activity.id %>/destroy">[x]</a>
     </li>
   <% end %>
 </ul>
