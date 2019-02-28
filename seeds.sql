@@ -4,23 +4,23 @@ DROP TABLE IF EXISTS categories;
 DROP TABLE IF EXISTS users;
 
 CREATE TABLE users (
-  id mediumint not null auto_increment,
-  name varchar(20),
-  password varchar(20),
+  id MEDIUMINT NOT NULL AUTO_INCREMENT,
+  name VARCHAR(20),
+  password VARCHAR(20),
   PRIMARY KEY (id)
 );
 
 CREATE TABLE categories (
-  id mediumint not null auto_increment,
-  name varchar(20),
+  id MEDIUMINT NOT NULL AUTO_INCREMENT,
+  name VARCHAR(20),
   PRIMARY KEY (id)
 );
 
 CREATE TABLE menus (
-  id mediumint not null auto_increment,
-  category_id mediumint,
-  name varchar(20),
-  level tinyint,
+  id MEDIUMINT NOT NULL AUTO_INCREMENT,
+  category_id MEDIUMINT,
+  name VARCHAR(20),
+  level TINYINT,
   PRIMARY KEY (id),
   FOREIGN KEY (category_id)
     REFERENCES categories(id)
@@ -28,11 +28,11 @@ CREATE TABLE menus (
 );
 
 CREATE TABLE activities (
-  id mediumint not null auto_increment,
-  user_id mediumint,
-  menu_id mediumint,
-  reps tinyint,
-  sets tinyint,
+  id MEDIUMINT NOT NULL AUTO_INCREMENT,
+  user_id MEDIUMINT,
+  menu_id MEDIUMINT,
+  reps TINYINT,
+  sets TINYINT,
   acted_at datetime,
   PRIMARY KEY (id),
   FOREIGN KEY (user_id)
@@ -43,7 +43,7 @@ CREATE TABLE activities (
     ON DELETE CASCADE
 );
 
-INSERT INTO categories (name) values ('Leg raise');
+INSERT INTO categories (name) VALUES ('Leg raise');
 
 INSERT INTO menus (category_id, level, name)
 SELECT c.id, 1, 'Knee tuck'
