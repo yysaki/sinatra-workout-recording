@@ -64,7 +64,9 @@ class App < Sinatra::Base
 
     Activity.create(user_id: @user_id,
                     menu_id: @menu.id,
-                    name: @menu.name)
+                    reps: params[:reps],
+                    sets: params[:sets],
+                    acted_at: params[:acted_at])
     redirect to('/activities')
   end
 

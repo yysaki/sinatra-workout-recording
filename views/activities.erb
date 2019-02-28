@@ -9,6 +9,7 @@
 </ul>
 <form action="/activities/create" method="post">
   <%= csrf_tag %>
+  <label for="name">Workout name:</label>
   <select id="name" name="name">
     <% @categories.each do |category| %>
       <optgroup label="<%= category.name %>">
@@ -18,5 +19,22 @@
       </optgroup>
     <% end %>
   </select>
+
+  <label for="reps">Reps:</label>
+  <select id="reps" name="reps">
+    <% 1.upto(50) do |n| %>
+      <option value="<%= n %>"><%= n %></option>
+    <% end %>
+  </select>
+
+  <label for="sets">Sets:</label>
+  <select id="sets" name="sets">
+    <% 1.upto(3) do |n| %>
+      <option value="<%= n %>"><%= n %></option>
+    <% end %>
+  </select>
+
+  <label for="acted_at">Start date:</label>
+  <input type="date" id="acted_at" name="acted_at">
   <input type="submit" value="Record activity">
 </form>

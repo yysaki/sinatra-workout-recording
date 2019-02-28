@@ -31,6 +31,9 @@ CREATE TABLE activities (
   id mediumint not null auto_increment,
   user_id mediumint,
   menu_id mediumint,
+  reps tinyint,
+  sets tinyint,
+  acted_at datetime,
   PRIMARY KEY (id),
   FOREIGN KEY (user_id)
     REFERENCES users(id)
