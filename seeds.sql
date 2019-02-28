@@ -44,15 +44,12 @@ CREATE TABLE activities (
 );
 
 INSERT INTO categories (name) VALUES ('Leg raise');
+INSERT INTO categories (name) VALUES ('Pushup');
 
-INSERT INTO menus (category_id, level, name)
-SELECT c.id, 1, 'Knee tuck'
-FROM categories c;
+INSERT INTO menus (category_id, level, name) SELECT c.id, 1, 'Knee tuck' FROM categories c WHERE name = 'Leg raise';
+INSERT INTO menus (category_id, level, name) SELECT c.id, 2, 'Flat Knee raise' FROM categories c WHERE name = 'Leg raise';
+INSERT INTO menus (category_id, level, name) SELECT c.id, 3, 'Flat bent leg raise' FROM categories c WHERE name = 'Leg raise';
 
-INSERT INTO menus (category_id, level, name)
-SELECT c.id, 2, 'Flat Knee raise'
-FROM categories c;
-
-INSERT INTO menus (category_id, level, name)
-SELECT c.id, 3, 'Flat bent leg raise'
-FROM categories c;
+INSERT INTO menus (category_id, level, name) SELECT c.id, 1, 'Wall pushup' FROM categories c WHERE name = 'Pushup';
+INSERT INTO menus (category_id, level, name) SELECT c.id, 2, 'Incline pushup' FROM categories c WHERE name = 'Pushup';
+INSERT INTO menus (category_id, level, name) SELECT c.id, 3, 'Kneeling pushup' FROM categories c WHERE name = 'Pushup';
