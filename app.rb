@@ -70,7 +70,7 @@ class App < Sinatra::Base
     redirect to('/activities')
   end
 
-  get '/activities/:id/destroy' do
+  post '/activities/:id/destroy' do
     Activity.find(params[:id]).destroy
     redirect to('/activities')
   end

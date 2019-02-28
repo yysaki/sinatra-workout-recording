@@ -3,7 +3,10 @@
   <% @user.activities.each do |activity| %>
     <li data-id="<%= activity.id %>">
       <%= activity.menu.name %>
-      <a href="/activities/<%= activity.id %>/destroy">[x]</a>
+      <form action="/activities/<%= activity.id %>/destroy" method="post">
+        <%= csrf_tag %>
+        <input class="button-delete" type="submit" value="delete">
+      </form>
     </li>
   <% end %>
 </ul>
