@@ -31,7 +31,6 @@ CREATE TABLE activities (
   id mediumint not null auto_increment,
   user_id mediumint,
   menu_id mediumint,
-  name varchar(20),
   PRIMARY KEY (id),
   FOREIGN KEY (user_id)
     REFERENCES users(id)

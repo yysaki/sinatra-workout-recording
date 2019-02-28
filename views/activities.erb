@@ -2,7 +2,7 @@
 <ul>
   <% @user.activities.each do |activity| %>
     <li data-id="<%= activity.id %>">
-      <%= activity.name %>
+      <%= activity.menu.name %>
       <a href="/activities/<%= activity.id %>/destroy">[x]</a>
     </li>
   <% end %>

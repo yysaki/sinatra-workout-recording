@@ -50,7 +50,7 @@ class App < Sinatra::Base
   get '/activities' do
     @id = session[:id]
     redirect to('/') unless @id
-    @user = User.includes(:activities).find_by(id: @id)
+    @user = User.includes(activities: [:menu]).find_by(id: @id)
     @categories = Category.includes(:menus).all
 
     @title = 'Activities'
